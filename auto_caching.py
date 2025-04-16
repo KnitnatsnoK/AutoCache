@@ -101,13 +101,13 @@ if __name__ == "__main__":
             return x
         return fibonacci(x - 1) + fibonacci(x - 2)
 
-    NUM = 30
+    NUM = 10
 
     fibonacci.set_cache_enabled(True)
     st = time.perf_counter()
     print(fibonacci(NUM))
     print(f"With cache: {time.perf_counter()-st:.2f}s")
-    print("Actually using cache:", fibonacci.use_cache)
+    print("Actually using cache:", fibonacci.use_cache) # None means it has still not decided (not received enough unique inputs)
     print()
 
     fibonacci.set_cache_enabled(False)
